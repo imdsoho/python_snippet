@@ -26,6 +26,9 @@ class lowerIterableMixin:
 class Tokenizer(UpperIterableMixin, lowerIterableMixin, BaseTokenizer): pass
 # 결과값 - ['ABCD', 'EFGH']
 
+#class Tokenizer(UpperIterableMixin, BaseTokenizer, lowerIterableMixin): pass
+# 결과값은 동일하고, lowerIterableMixin의 __iter__() 호출하지 않음
+
 #class Tokenizer(lowerIterableMixin, UpperIterableMixin, BaseTokenizer): pass
 # 결과값 - ['abcd', 'efgh']
 
@@ -37,6 +40,3 @@ for token in tk:
 #print(issubclass(lowerIterableMixin, Iterable))
 
 print(isinstance(tk.__iter__(), Iterator))
-
-
-
